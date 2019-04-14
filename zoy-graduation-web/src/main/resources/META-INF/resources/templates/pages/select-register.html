@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<meta charset="utf-8" />
+<meta name="renderer" content="webkit" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+        name="viewport" />
+<head runat="server">
+    <title>注册中心</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/alogin.css}"/>
+</head>
+
+<script th:inline="javascript">
+    var ZOY = window.ZOY || {
+        CTX: /*[[${#httpServletRequest.getContextPath()}]]*/
+    };
+    var CTX = /*[[${#httpServletRequest.getContextPath()}]]*/;
+</script>
+
+
+
+<body>
+    <form id="form-account" runat="server">
+    <div class="Main">
+        <ul>
+            <span class="btn">
+                <button id="btn-admin-reg" type="button">
+                    <span>管理员注册</span>
+                </button>
+            </span>
+
+            <span class="btn">
+                <button id="btn-doctor-reg" type="button">
+                    <span>医生注册</span>
+                </button>
+            </span>
+
+            <span class="btn">
+                <button id="btn-patient-reg" type="button">
+                    <span>患者注册</span>
+                </button>
+            </span>
+        </ul>
+    </div>
+    </form>
+</body>
+
+<section layout:fragment="js_layout">
+    <script th:src="@{/js/base/jquery-3.3.1.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/base/select_register.js}"></script>
+</section>
+
+</html>

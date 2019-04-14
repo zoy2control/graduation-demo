@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<meta charset="utf-8" />
+<meta name="renderer" content="webkit" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+        name="viewport" />
+<head runat="server">
+    <title>医院管理系统</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/alogin.css}"/>
+</head>
+
+<script th:inline="javascript">
+    var ZOY = window.ZOY || {
+        CTX: /*[[${#httpServletRequest.getContextPath()}]]*/
+    };
+    var CTX = /*[[${#httpServletRequest.getContextPath()}]]*/;
+</script>
+
+
+
+<body>
+    <form id="form-account" runat="server">
+    <div class="Main">
+        <ul>
+            <li class="top"></li>
+            <li class="top2"></li>
+            <li class="topA"></li>
+            <li class="topB"><span>
+                <img alt="" style="height: 140px;width: 280px;" src="../images/login/logo.gif" />
+            </span></li>
+            <li class="topC"></li>
+            <li class="topD">
+                <ul class="login">
+                    <li><span class="left">用户名：</span> <span style="left">
+                        <input id="account" name="accountName" type="text" class="css-account" />
+                    </span></li>
+                    <li><span class="left">密码：</span> <span style="left">
+                       <input id="password" name="password" type="password" class="css-account" />
+                    </span></li>
+                </ul>
+            </li>
+            <li class="topE"></li>
+            <li class="middle_A"></li>
+            <li class="middle_B"></li>
+            <li class="middle_C">
+            <span class="btn">
+                <button id="btn-login" type="button">
+                    <span>登录</span>
+                </button>
+            </span>
+
+                <span class="btn">
+                <button id="btn-register" type="button">
+                    <span>注册</span>
+                </button>
+            </span>
+            </li>
+            <li class="middle_D"></li>
+            <li class="bottom_A"></li>
+            <li class="bottom_B">
+            </li>
+        </ul>
+    </div>
+    </form>
+</body>
+
+<section layout:fragment="js_layout">
+    <script th:src="@{/js/base/jquery-3.3.1.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/base/login.js}"></script>
+</section>
+
+</html>
