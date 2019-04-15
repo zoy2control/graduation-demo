@@ -35,7 +35,7 @@
                                 <span class="required">*</span></label>
                             </td>
                             <td style="width:87%;">
-                                <input class="inputBg" size="25"  id="account" type="text" value="" />
+                                <input class="inputBg" size="25"  id="account" name="account" type="text" value="" />
                             </td>
                         </tr>
 
@@ -44,28 +44,30 @@
                                 <label for="password" class="required">密码 <span class="required">*</span></label>
                             </td>
                             <td>
-                                <input class="inputBg" size="25"  id="password" type="password" value="" />
+                                <input class="inputBg" size="25"  id="password" name="password" type="password" value="" />
                             </td>
                         </tr>
+
+                        <input type="hidden" id="privilege" name="privilege" value="2" />
 
                         <tr>
                             <td align="right"><label for="name">真实姓名</label></td>
                             <td>
-                                <input class="inputBg" size="25"  id="name" type="text" value="" />
+                                <input class="inputBg" size="25"  id="name" name="name" type="text" value="" />
                             </td>
                         </tr>
 
                         <tr>
                             <td align="right"><label for="age">年龄</label></td>
                             <td>
-                                <input class="inputBg" size="25" name="User[user_qq]" id="age" type="text" value="" />
+                                <input class="inputBg" size="25" name="age" id="age" type="text" value="" />
                             </td>
                         </tr>
 
                         <tr>
                             <td align="right"><label for="sex">性别</label></td>
                             <td>
-                                <input id="sex" type="hidden" value="" name="" />
+                                <input id="sex" type="hidden" value="" name="sex" />
                                 <span id="User_user_sex">
                                     <input id="sex-boy" value="男" checked="checked" type="radio" name="" />
                                     <label for="sex-boy">男</label>&nbsp;
@@ -91,28 +93,28 @@
                         <tr>
                             <td align="right"><label for="tel">手机</label></td>
                             <td>
-                                <input class="inputBg" size="25" name="" id="tel" type="text" value="" />
+                                <input class="inputBg" size="25" name="tel" id="tel" type="text" value="" />
                             </td>
                         </tr>
 
                         <tr>
                             <td align="right"><label for="identity-num">身份证号码</label></td>
                             <td>
-                                <input class="inputBg" size="25"  id="identity-num" type="text" value="" />
+                                <input class="inputBg" size="25"  id="identity-num" name="identityNum" type="text" value="" />
                             </td>
                         </tr>
 
                         <tr>
                             <td align="right"><label for="company">单位</label></td>
                             <td>
-                                <input class="inputBg" size="25"  id="company" type="text" value="" />
+                                <input class="inputBg" size="25"  id="company" name="company" type="text" value="" />
                             </td>
                         </tr>
 
                         <tr>
                             <td align="right"><label for="addr">联系地址</label></td>
                             <td>
-                                <input class="inputBg" size="25"  id="addr" type="text" value="" />
+                                <input class="inputBg" size="25"  id="addr" name="addr" type="text" value="" />
                             </td>
                         </tr>
                         </tbody>

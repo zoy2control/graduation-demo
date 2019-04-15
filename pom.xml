@@ -10,9 +10,10 @@
 	</parent>
 	<groupId>com.zoy.graduation</groupId>
 	<artifactId>zoy-graduation-demo</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<name>zoy-graduation-demo</name>
 	<description>Demo project for Spring Boot</description>
+
 	<modules>
 		<module>zoy-graduation-web</module>
 		<module>zoy-graduation-service</module>

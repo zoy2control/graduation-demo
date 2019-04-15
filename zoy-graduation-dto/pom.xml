@@ -5,12 +5,12 @@
 	<parent>
 		<groupId>com.zoy.graduation</groupId>
 		<artifactId>zoy-graduation-demo</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>1.0.0-SNAPSHOT</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.zoy.graduation</groupId>
 	<artifactId>zoy-graduation-dto</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<name>zoy-graduation-dto</name>
 	<description>Demo project for Spring Boot</description>
 
