@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<meta charset="utf-8" />
+<meta name="renderer" content="webkit" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+        name="viewport" />
+<head runat="server">
+    <title>医生注册页面</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/alogin.css}"/>
+</head>
+
+<script th:inline="javascript">
+    var ZOY = window.ZOY || {
+        CTX: /*[[${#httpServletRequest.getContextPath()}]]*/
+    };
+    var CTX = /*[[${#httpServletRequest.getContextPath()}]]*/;
+</script>
+
+
+<body class="index_body">
+<div class="block block1">
+    <!--放入view具体内容-->
+    <div class="block box">
+        <div class="usBox">
+            <div class="usBox_2 clearfix">
+                <div class="logtitle3"></div>
+                <form id="form-info" action="" method="">
+                    <table cellpadding="5" cellspacing="3" style="text-align:left; width:100%; border:0;">
+                        <tbody>
+                        <tr>
+                            <td style="width:13%; text-align: right;"><label for="account" class="required">用户名
+                                <span class="required">*</span></label>
+                            </td>
+                            <td style="width:87%;">
+                                <input class="inputBg" size="25"  id="account" name="account" type="text" value="" />
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align="right">
+                                <label for="password" class="required">密码 <span class="required">*</span></label>
+                            </td>
+                            <td>
+                                <input class="inputBg" size="25"  id="password" name="password" type="password" value="" />
+                            </td>
+                        </tr>
+
+                        <input type="hidden" id="privilege" name="privilege" value="2" />
+
+                        <tr>
+                            <td align="right"><label for="name">真实姓名</label></td>
+                            <td>
+                                <input class="inputBg" size="25"  id="name" name="name" type="text" value="" />
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align="right"><label for="age">年龄</label></td>
+                            <td>
+                                <input class="inputBg" size="25" name="age" id="age" type="text" value="" />
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align="right"><label for="age">工龄</label></td>
+                            <td>
+                                <input class="inputBg" size="25" name="workAge" id="work-age" type="text" value="" />
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align="right"><label for="sex">性别</label></td>
+                            <td>
+                                <input id="sex" type="hidden" value="" name="sex" />
+                                <span id="User_user_sex">
+                                    <input id="sex-boy" value="男" checked="checked" type="radio" name="" />
+                                    <label for="sex-boy">男</label>&nbsp;
+                                    <input id="sex-girl" value="女" type="radio" name="" />
+                                    <label for="sex-girl">女</label>&nbsp;
+                                </span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align="right"><label for="department">科室</label></td>
+                            <td>
+                                <input class="inputBg" size="25" name="department" id="department" type="text" value="" />
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align="right"><label for="job-title">职称</label></td>
+                            <td>
+                                <input class="inputBg" size="25"  id="job-title" name="jobTitle" type="text" value="" />
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <div>
+                        <span class="btn">
+                            <button id="commit-reg" type="button">
+                                <span>提交</span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--放入view具体内容-->
+</div>
+</body>
+
+<section layout:fragment="js_layout">
+    <script th:src="@{/js/base/jquery-3.3.1.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/doctor/register.js}"></script>
+</section>
+
+</html>

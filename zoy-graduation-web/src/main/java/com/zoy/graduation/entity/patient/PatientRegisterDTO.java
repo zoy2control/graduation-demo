@@ -1,12 +1,12 @@
-package com.zoy.graduation.dto.patient;
+package com.zoy.graduation.entity.patient;
 
 import lombok.Data;
 
 /**
- * Created by zouzp on 2019/4/14.
+ * Created by zouzp on 2019/4/16.
  */
 @Data
-public class PatientInfoDTO {
+public class PatientRegisterDTO {
     private int patientId;
     private String account;
     private String password;

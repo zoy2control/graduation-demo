@@ -1,7 +1,7 @@
 package com.zoy.graduation.controller;
 
-import com.zoy.graduation.entity.patient.PatientRegisterDTO;
-import com.zoy.graduation.service.IPatientService;
+import com.zoy.graduation.entity.doctor.DoctorRegisterDTO;
+import com.zoy.graduation.service.IDoctorService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,26 +11,23 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.annotation.Resource;
 
 /**
- * Created by zouzp on 2019/4/14.
+ * Created by zouzp on 2019/4/16.
  */
-@RestController
-@RequestMapping("patient")
-public class PatientController {
+@RestController()
+@RequestMapping("doctor")
+public class DoctorController {
 
     @Resource
-    private IPatientService patientService;
+    private IDoctorService doctorService;
 
     @GetMapping("show/register")
     public ModelAndView showRegister() {
-        ModelAndView mv = new ModelAndView("patient/register");
-        return mv;
+        ModelAndView modelAndView = new ModelAndView("doctor/register");
+        return modelAndView;
     }
 
-    /**
-     * ·注册
-     */
     @PostMapping("register")
-    public void register(PatientRegisterDTO patientRegisterDTO) {
-        patientService.register(patientRegisterDTO);
+    public void register(DoctorRegisterDTO doctorRegisterDTO) {
+        doctorService.register(doctorRegisterDTO);
     }
 }

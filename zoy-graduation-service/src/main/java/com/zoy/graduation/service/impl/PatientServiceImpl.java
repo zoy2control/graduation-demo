@@ -16,6 +16,7 @@ public class PatientServiceImpl implements IPatientService {
     private IPatientInfoMapper patientInfoMapper;
     @Override
     public void register(PatientInfoDTO patientInfoDTO) {
-        patientInfoMapper.register(patientInfoDTO);
+//        patientInfoMapper.register(patientInfoDTO);
+        patientInfoMapper.insertSelective(patientInfoDTO);
     }
 }
