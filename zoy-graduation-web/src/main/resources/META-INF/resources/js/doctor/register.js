@@ -22,7 +22,6 @@
 		},
         // ·提交注册信息
 		commit : function () {
-
 			var _formData = App.getFormData($("#form-info")[0]);
 			$.ajax({
 				url : CTX + "/doctor/register",
@@ -39,7 +38,7 @@
                 }
 			})
         },
-
+        // ·处理表单信息
         getFormData: function(target) {
             var _$target = target;
             var data = {};
