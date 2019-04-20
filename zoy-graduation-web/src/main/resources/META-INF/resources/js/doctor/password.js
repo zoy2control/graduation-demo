@@ -1,5 +1,5 @@
 /**
- * 主登录页面
+ * 医生修改密码
  */
 (function($, window, ZOY, undefined) {
 	'use strict';
@@ -12,53 +12,44 @@
 		// ·DOM对象
 		catheElements : function() {
 			// ·Form表单
-            this.$loginForm = $("#form-account");
-
+            this.$infoForm = $("#form-info");
             // ·按钮btn
-            this.$btnLogin = $("#btn-login")
-			this.$btnRegister = $("#btn-register");
+            this.$btnCommit = $("#commit-reg")
 		},
 		// ·绑定事件
 		bindEvents : function() {
-			this.$btnLogin.on("click", App.login);
-			this.$btnRegister.on("click", App.register);
-
+			this.$btnCommit.on("click", App.commit);
 		},
-		// ·登录
-		login : function () {
-            var _formData = App.getFormData($("#form-account")[0]);
-            $.ajax({
-                url : CTX + "/hello/login",
-                type : "POST",
-                dataType : 'json',
-                cache : false,
-                data : _formData,
-				// ·登录成功之后，跳转到相对应的主界面
+        // ·提交修改密码信息
+		commit : function () {
+
+			var _formData = App.getFormData($("#form-info")[0]);
+			_formData = App.getCondtion(_formData);
+
+
+			$.ajax({
+				url : CTX + "/doctor/modify/password",
+				type : "POST",
+				dataType : 'json',
+				cache : false,
+				data : _formData,
                 success: function(data) {
-                    if(data != null && data.privilege === 0) {// ·管理员主界面
-                        localStorage.setItem("admin",data);
-                    	window.location.href = CTX + "/admin/home";
-					} else if (data != null && data.privilege === 1) {// ·医生主界面
-                        var _data = JSON.stringify(data);
-                        localStorage.setItem("doctor",_data);
-                    	window.location.href = CTX + "/doctor/home";
-					} else if (data != null && data.privilege === 2) {// ·患者主界面
-                        var _data = JSON.stringify(data);
-                        localStorage.setItem("patient",_data);
-                    	window.location.href = CTX + "/patient/home";
-					} else {
-                        window.location.href = CTX + "/hello/error"
-                    }
+				    // ·注册成功之后，跳转登录界面
+				    window.location.href = CTX + "/hello/index"
                 },
                 error: function(err) {
-					alter(err);
+                    window.location.href = CTX + "/hello/index"
                 }
-            })
+			})
         },
-        // ·注册
-		register : function () {
-			// ·跳转至注册中心页面
-			window.location.href=CTX + '/hello/center/register';
+
+        getCondtion : function (_formData) {
+            var _storage = localStorage.getItem("doctor");
+            var _parse = JSON.parse(_storage);
+            if (_parse.doctorId != null) {
+                _formData.doctorId = _parse.doctorId;
+            }
+            return _formData;
         },
 
         getFormData: function(target) {
@@ -118,6 +109,9 @@
             // });
             return data;
         }
+
+
+
 	};
     App.init();
 })(jQuery, window, ZOY);

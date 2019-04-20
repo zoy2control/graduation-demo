@@ -28,4 +28,14 @@ public class DoctorServiceImpl implements IDoctorService {
         doctorInfo.setDoctorId(doctorId);
         doctorInfoMapper.insertSelective(doctorInfo);
     }
+
+    @Override
+    public DoctorInfo findByDoctorId(int doctorId) {
+        DoctorInfo doctorInfo = new DoctorInfo();
+        if (0 != doctorId) {
+            doctorInfo.setDoctorId(doctorId);
+        }
+        DoctorInfo result = doctorInfoMapper.selectOne(doctorInfo);
+        return result;
+    }
 }

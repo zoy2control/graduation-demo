@@ -1,6 +1,8 @@
 package com.zoy.graduation.controller;
 
+import com.zoy.graduation.entity.account.AccountInfo;
 import com.zoy.graduation.entity.patient.PatientRegisterDTO;
+import com.zoy.graduation.service.IAccountService;
 import com.zoy.graduation.service.IPatientService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +22,7 @@ public class PatientController {
     @Resource
     private IPatientService patientService;
 
+
     @GetMapping("show/register")
     public ModelAndView showRegister() {
         ModelAndView mv = new ModelAndView("patient/register");
@@ -31,6 +34,13 @@ public class PatientController {
      */
     @PostMapping("register")
     public void register(PatientRegisterDTO patientRegisterDTO) {
-        patientService.register(patientRegisterDTO);
+
+        patientService.register(patientRegisterDTO);// ·患者个人信息注册
+    }
+
+    @GetMapping("home")
+    public ModelAndView home() {
+        ModelAndView mv = new ModelAndView("patient/home");
+        return mv;
     }
 }

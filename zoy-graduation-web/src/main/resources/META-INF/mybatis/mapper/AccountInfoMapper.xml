@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zoy.graduation.mapper.IAccountInfoMapper">
+    <select id="findByCondition" parameterType="com.zoy.graduation.entity.account.AccountInfo" resultType="com.zoy.graduation.entity.account.AccountInfo">
+        SELECT
+          ai.account,
+          ai.password,
+          ai.privilege,
+          ai.patient_id,
+          ai.doctor_id
+        FROM account_info ai
+        WHERE
+          account = #{account}
+          AND password = #{password}
+    </select>
+
+    <select id="updatePassword" parameterType="com.zoy.graduation.entity.account.AccountInfo" >
+        UPDATE
+         account_info
+        SET
+          password = #{password}
+    </select>
+</mapper>
+

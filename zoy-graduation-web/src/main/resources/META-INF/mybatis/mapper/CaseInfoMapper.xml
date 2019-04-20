@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zoy.graduation.mapper.ICaseInfoMapper">
+<select id="findByPatientId" parameterType="com.zoy.graduation.entity.patient.PatientInfo" resultType="com.zoy.graduation.entity.caseInfo.CaseInfo">
+    SELECT
+      case_id,
+      patient_id,
+      medicine_name,
+      medicine_num,
+      docter_name,
+      visit_time
+    FROM patient_case
+    WHERE
+      patient_id = #{patientId}
+</select>
+</mapper>
+

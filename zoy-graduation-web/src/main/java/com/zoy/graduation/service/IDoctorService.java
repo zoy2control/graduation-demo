@@ -1,5 +1,6 @@
 package com.zoy.graduation.service;
 
+import com.zoy.graduation.entity.doctor.DoctorInfo;
 import com.zoy.graduation.entity.doctor.DoctorRegisterDTO;
 
 /**
@@ -7,4 +8,6 @@ import com.zoy.graduation.entity.doctor.DoctorRegisterDTO;
  */
 public interface IDoctorService {
     public void register(DoctorRegisterDTO doctorRegisterDTO);
+
+    public DoctorInfo findByDoctorId(int doctorId);
 }
