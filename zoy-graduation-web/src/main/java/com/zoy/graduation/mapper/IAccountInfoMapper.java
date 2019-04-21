@@ -13,4 +13,5 @@ import java.util.List;
 public interface IAccountInfoMapper extends IBaseMapper<AccountInfo> {
     public List<AccountInfo> findByCondition(AccountInfo accountInfo);
     public void updatePassword(AccountInfo accountInfo);
+    public List<AccountInfo> selectByDoctorId(AccountInfo accountInfo);
 }

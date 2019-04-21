@@ -1,5 +1,5 @@
 /**
- * 医生主页面
+ * 患者注册页面
  */
 (function($, window, ZOY, undefined) {
 	'use strict';
@@ -11,27 +11,34 @@
 		},
 		// ·DOM对象
 		catheElements : function() {
-		    // ·页面标签
-		    this.$patientId = $("#patient-id");
-		    this.$formPatientSearch = $("#form-search-patient");
+			// ·Form表单
+            this.$infoForm = $("#form-info");
             // ·按钮btn
-            this.$btnModifyPass = $("#btn-modify-password");
-            this.$btnVisit = $("#btn-visit");
+            this.$btnCommit = $("#commit-reg")
 		},
 		// ·绑定事件
 		bindEvents : function() {
-			this.$btnModifyPass.on("click", App.modifyPass);
-            this.$btnVisit.on("click", App.visit)
+			this.$btnCommit.on("click", App.commit);
 		},
-        // ·修改密码
-        modifyPass : function () {
-            window.location.href = CTX + "/doctor/show/modify/password"
+        // ·提交注册信息
+		commit : function () {
+			var _formData = App.getFormData($("#form-info")[0]);
+			$.ajax({
+				url : CTX + "/doctor/register",
+				type : "POST",
+				dataType : 'json',
+				cache : false,
+				data : _formData,
+                success: function(data) {
+				    // ·注册成功之后，跳转医生列表
+				    window.location.href = CTX + "/admin/show/doctor"
+                },
+                error: function(err) {
+                    window.location.href = CTX + "/admin/show/doctor"
+                }
+			})
         },
-        visit : function() {
-            this.$patientId = App.getFormData($("#form-search-patient")[0]);
-		    localStorage.setItem("visit_patient", JSON.stringify(this.$patientId));
-		    window.location.href = CTX + "/doctor/show/patient"
-        },
+
         getFormData: function(target) {
             var _$target = target;
             var data = {};

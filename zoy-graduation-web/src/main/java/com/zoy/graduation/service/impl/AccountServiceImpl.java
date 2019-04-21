@@ -38,9 +38,12 @@ public class AccountServiceImpl implements IAccountService {
 
     @Override
     public AccountInfo findByDoctorId(AccountInfo accountInfo) {
-        AccountInfo result = accountInfoMapper.selectOne(accountInfo);
-        if (null != result && result.getPrivilege() == 1) {
-            return result;
+        List<AccountInfo> resultList = accountInfoMapper.selectByDoctorId(accountInfo);
+        if (null != resultList && !resultList.isEmpty()) {
+            AccountInfo result = resultList.get(0);
+            if (result.getPrivilege() == 1) {
+                return result;
+            }
         }
         return null;
     }

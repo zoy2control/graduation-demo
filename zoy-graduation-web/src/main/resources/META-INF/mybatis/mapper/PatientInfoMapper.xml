@@ -4,19 +4,22 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.zoy.graduation.mapper.IPatientInfoMapper">
-    <!--<update id="register" >-->
-        <!--UPDATE patient_info-->
-        <!--SET-->
-          <!--patient_id = #{patientId},-->
-          <!--name = #{name},-->
-          <!--age = #{age},-->
-          <!--sex = #{sex},-->
-          <!--tel = #{tel},-->
-          <!--addr = #{addr},-->
-          <!--marriage = #{marriage},-->
-          <!--company = #{company},-->
-          <!--identity_num = #{identityNum},-->
-          <!--case_id = #{caseId}-->
-    <!--</update>-->
+    <select id="selectByPatientId" parameterType="com.zoy.graduation.entity.patient.PatientInfo" resultType="com.zoy.graduation.entity.patient.PatientInfo">
+        SELECT
+          pi.patient_id,
+          pi.name,
+          pi.age,
+          pi.sex,
+          pi.tel,
+          pi.addr,
+          pi.marriage,
+          pi.company,
+          pi.identity_num,
+          pi.case_id
+        FROM
+          patient_info pi
+        WHERE
+          patient_id = #{patientId}
+    </select>
 </mapper>
 

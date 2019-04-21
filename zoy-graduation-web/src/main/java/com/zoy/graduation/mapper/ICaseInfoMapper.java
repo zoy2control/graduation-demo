@@ -4,6 +4,7 @@ import com.zoy.graduation.entity.caseInfo.CaseInfo;
 import com.zoy.graduation.entity.patient.PatientInfo;
 import com.zoy.graduation.utils.IBaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -13,4 +14,6 @@ import java.util.List;
 @Mapper
 public interface ICaseInfoMapper extends IBaseMapper<CaseInfo> {
     public List<CaseInfo> findByPatientId(PatientInfo patientInfo);
+    public CaseInfo findByCaseId(@Param("caseId") int caseId);
+    public void updateByCaseId(CaseInfo caseInfo);
 }

@@ -1,5 +1,6 @@
 package com.zoy.graduation.service;
 
+import com.github.pagehelper.PageInfo;
 import com.zoy.graduation.entity.doctor.DoctorInfo;
 import com.zoy.graduation.entity.doctor.DoctorRegisterDTO;
 
@@ -9,5 +10,11 @@ import com.zoy.graduation.entity.doctor.DoctorRegisterDTO;
 public interface IDoctorService {
     public void register(DoctorRegisterDTO doctorRegisterDTO);
 
-    public DoctorInfo findByDoctorId(int doctorId);
+    public DoctorInfo findByDoctorId(long doctorId);
+
+    public PageInfo<DoctorInfo> queryAll();
+
+    public void updateByDoctorId(DoctorInfo doctorInfo);
+
+    public void deleteByDoctorId(long doctorId);
 }

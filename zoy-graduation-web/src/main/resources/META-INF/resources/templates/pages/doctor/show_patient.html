@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<meta charset="utf-8" />
+<meta name="renderer" content="webkit" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+        name="viewport" />
+<head runat="server">
+    <title>患者详情页面</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/alogin.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{http://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css}"/>
+</head>
+
+<script th:inline="javascript">
+    var ZOY = window.ZOY || {
+        CTX: /*[[${#httpServletRequest.getContextPath()}]]*/
+    };
+    var CTX = /*[[${#httpServletRequest.getContextPath()}]]*/;
+</script>
+
+
+
+<body>
+    <h1>患者详情hhhh</h1>
+
+    <h2>患者详情</h2>
+    <div class="block block1">
+        <!--放入view具体内容-->
+        <div class="block box">
+            <div class="usBox">
+                <div class="usBox_2 clearfix">
+                    <div class="logtitle3"></div>
+                    <table cellpadding="5" cellspacing="3" style="text-align:left; width:100%; border:0;">
+                        <tbody>
+                        <tr>
+                            <td align="right"><label for="name">真实姓名</label></td>
+                            <td>
+                                <input class="inputBg" size="25"  id="name" name="name" type="text" value="" disabled="disabled"/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align="right"><label for="age">年龄</label></td>
+                            <td>
+                                <input class="inputBg" size="25" name="age" id="age" type="text" value="" disabled="disabled"/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align="right"><label for="age">性别</label></td>
+                            <td>
+                                <input class="inputBg" size="25" name="sex" id="sex" type="text" value="" disabled="disabled"/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align="right"><label for="age">婚否</label></td>
+                            <td>
+                                <input class="inputBg" size="25" name="marriage" id="marriage" type="text" value="" disabled="disabled"/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align="right"><label for="tel">手机</label></td>
+                            <td>
+                                <input class="inputBg" size="25" name="tel" id="tel" type="text" value="" disabled="disabled"/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align="right"><label for="identity-num">身份证号码</label></td>
+                            <td>
+                                <input class="inputBg" size="25"  id="identity-num" name="identityNum" type="text" value="" disabled="disabled"/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align="right"><label for="company">单位</label></td>
+                            <td>
+                                <input class="inputBg" size="25"  id="company" name="company" type="text" value="" disabled="disabled"/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align="right"><label for="addr">联系地址</label></td>
+                            <td>
+                                <input class="inputBg" size="25"  id="addr" name="addr" type="text" value="" disabled="disabled"/>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!--放入view具体内容-->
+    </div>
+
+    <!--<h2>添加新病例</h2>-->
+    <!--<div>-->
+        <!--<span class="btn">-->
+            <!--<button id="btn-new-case" type="button">-->
+                <!--<span>新增病例</span>-->
+            <!--</button>-->
+        <!--</span>-->
+    <!--</div>-->
+
+    <h2>患者过往病史</h2>
+    <table id="table-case-info" class=" table table-hover table-bordered dataTable no-footer dtr-inline" width="100%" style="text-align:center"></table>
+
+</body>
+
+<section layout:fragment="js_layout">
+    <script th:src="@{/js/base/jquery-3.3.1.min.js}"></script>
+    <script th:src="@{http://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js}"></script>
+    <script th:src="@{/js/base/template-web.js}"></script>
+    <script th:src="@{/js/base/moment.js}"></script>
+    <script type="text/javascript" th:src="@{/js/doctor/show_patient.js}"></script>
+</section>
+
+</html>

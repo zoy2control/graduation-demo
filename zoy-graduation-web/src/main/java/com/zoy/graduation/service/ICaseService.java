@@ -11,4 +11,6 @@ import java.util.List;
  */
 public interface ICaseService {
     public PageInfo<CaseInfo> findByPatientId(PatientInfo patientInfo);
+    public CaseInfo findByCaseId(int caseId);
+    public void updateByCaseId(CaseInfo caseInfo);
 }

@@ -17,11 +17,27 @@
           AND password = #{password}
     </select>
 
-    <select id="updatePassword" parameterType="com.zoy.graduation.entity.account.AccountInfo" >
+    <update id="updatePassword" parameterType="com.zoy.graduation.entity.account.AccountInfo" >
         UPDATE
          account_info
         SET
           password = #{password}
+        WHERE
+          account = #{account}
+          AND
+          doctor_id = #{doctorId}
+    </update>
+
+    <select id="selectByDoctorId" parameterType="com.zoy.graduation.entity.account.AccountInfo" resultType="com.zoy.graduation.entity.account.AccountInfo">
+        SELECT
+        ai.account,
+        ai.password,
+        ai.privilege,
+        ai.patient_id,
+        ai.doctor_id
+        FROM account_info ai
+        WHERE
+         doctor_id = #{doctorId}
     </select>
 </mapper>
 

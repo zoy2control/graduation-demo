@@ -8,7 +8,7 @@
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
         name="viewport" />
 <head runat="server">
-    <title>医生主界面</title>
+    <title>医生管理主界面</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/alogin.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{http://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css}"/>
 </head>
@@ -23,35 +23,28 @@
 
 
 <body>
-    <h1>医生66666</h1>
-
-<div>
-    <span class="btn">
-        <button id="btn-modify-password" type="button">
-            <span>修改密码</span>
-        </button>
-    </span>
-</div>
-
+    <h1>医生管理66666</h1>
 
     <div>
-        <form id="form-search-patient">
-            <input id="patient-id" name="patientId" placeholder="请输入患者病历号" />
-                <span class="btn">
-                    <button id="btn-visit" type="button">
-                        <span>患者就诊</span>
-                    </button>
-                </span>
-            <table id="table-patient-visit" class=" table table-hover table-bordered dataTable no-footer dtr-inline" width="100%" style="text-align:center"></table>
-        </form>
+    <span class="btn">
+        <button id="btn-add-doctor" type="button">
+            <span>添加医生信息</span>
+        </button>
+    </span>
+    </div>
+
+    <div>
+        <h2>医生信息列表</h2>
+        <table id="table-doctor" class=" table table-hover table-bordered dataTable no-footer dtr-inline" width="100%" style="text-align:center"></table>
     </div>
 </body>
 
 <section layout:fragment="js_layout">
     <script th:src="@{/js/base/jquery-3.3.1.min.js}"></script>
     <script th:src="@{http://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js}"></script>
+    <script th:src="@{/js/base/template-web.js}"></script>
     <script th:src="@{/js/base/moment.js}"></script>
-    <script type="text/javascript" th:src="@{/js/doctor/home.js}"></script>
+    <script type="text/javascript" th:src="@{/js/admin/show_doctor.js}"></script>
 </section>
 
 </html>

@@ -9,6 +9,7 @@ import com.zoy.graduation.service.ICaseService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -26,5 +27,17 @@ public class CaseServiceImpl implements ICaseService {
         List<CaseInfo> resultList = caseInfoMapper.findByPatientId(patientInfo);
         PageInfo<CaseInfo> pageInfo = new PageInfo<>(resultList);
         return pageInfo;
+    }
+
+    @Override
+    public CaseInfo findByCaseId(int caseId) {
+        CaseInfo caseInfo = caseInfoMapper.findByCaseId(caseId);
+        return caseInfo;
+    }
+
+    @Override
+    public void updateByCaseId(CaseInfo caseInfo) {
+        caseInfo.setVisitTime(new Date());
+        caseInfoMapper.updateByCaseId(caseInfo);
     }
 }

@@ -4,19 +4,41 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.zoy.graduation.mapper.IDoctorInfoMapper">
-    <!--<update id="register" >-->
-        <!--UPDATE patient_info-->
-        <!--SET-->
-          <!--patient_id = #{patientId},-->
-          <!--name = #{name},-->
-          <!--age = #{age},-->
-          <!--sex = #{sex},-->
-          <!--tel = #{tel},-->
-          <!--addr = #{addr},-->
-          <!--marriage = #{marriage},-->
-          <!--company = #{company},-->
-          <!--identity_num = #{identityNum},-->
-          <!--case_id = #{caseId}-->
-    <!--</update>-->
+    <update id="updateByDoctorId" parameterType="com.zoy.graduation.entity.doctor.DoctorInfo" >
+        UPDATE
+         doctor_info di
+        SET
+         di.name = #{name},
+         di.sex = #{sex},
+         di.age = #{age},
+         di.work_age = #{workAge},
+         di.job_title = #{jobTitle},
+         di.department = #{department}
+        WHERE
+         di.doctor_id = #{doctorId}
+    </update>
+
+    <select id="findByDoctorId"  resultType="com.zoy.graduation.entity.doctor.DoctorInfo">
+        SELECT
+         di.doctor_id,
+         di.name,
+         di.sex,
+         di.age,
+         di.work_age,
+         di.job_title,
+         di.department
+        FROM
+          doctor_info di
+        WHERE
+          di.doctor_id = #{doctorId}
+    </select>
+
+    <delete id="deleteByDoctorId" >
+        DELETE
+        FROM
+        doctor_info
+        WHERE
+        doctor_id = #{doctorId}
+    </delete>
 </mapper>
 

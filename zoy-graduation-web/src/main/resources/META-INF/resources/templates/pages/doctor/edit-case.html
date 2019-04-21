@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<meta charset="utf-8" />
+<meta name="renderer" content="webkit" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+        name="viewport" />
+<head runat="server">
+    <title>编辑病例页面</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/alogin.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{http://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css}"/>
+</head>
+
+<script th:inline="javascript">
+    var ZOY = window.ZOY || {
+        CTX: /*[[${#httpServletRequest.getContextPath()}]]*/
+    };
+    var CTX = /*[[${#httpServletRequest.getContextPath()}]]*/;
+</script>
+
+
+
+<body>
+    <h1>医生查就诊hhhh</h1>
+
+    <h2>患者病例详情</h2>
+    <div class="block block1">
+        <!--放入view具体内容-->
+        <div class="block box">
+            <div class="usBox">
+                <div class="usBox_2 clearfix">
+                    <div class="logtitle3"></div>
+                    <form id="case-info" action="" method="">
+                        <table cellpadding="5" cellspacing="3" style="text-align:left; width:100%; border:0;">
+                            <tbody>
+                            <input id="hidden-case-id" name="caseId" type="hidden" th:value="${caseId}"/>
+                            <input id="hidden-patient-id" name="patientId" type="hidden" th:value="${patientId}"/>
+                            <input id="hidden-doctor-id" name="doctorId" type="hidden" th:value="${doctorId}"/>
+                            <input id="hidden-doctor-name" name="doctorName" type="hidden" th:value="${doctorName}"/>
+                            <tr>
+                                <td align="right"><label for="name">真实姓名</label></td>
+                                <td>
+                                    <input class="inputBg" size="25"  id="name" name="name" type="text" value="" disabled="disabled"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td align="right"><label for="age">年龄</label></td>
+                                <td>
+                                    <input class="inputBg" size="25" name="age" id="age" type="text" value="" disabled="disabled"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td align="right"><label for="age">病况</label></td>
+                                <td>
+                                    <input class="inputBg" size="25" name="state" id="state" type="text" th:value="${state}"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td align="right"><label for="medicine-name">药名</label></td>
+                                <td>
+                                    <input class="inputBg" size="25" name="medicineName" id="medicine-name" type="text" th:value="${medicineName}"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td align="right"><label for="medicine-num">数量</label></td>
+                                <td>
+                                    <input class="inputBg" size="25" name="medicineNum" id="medicine-num" type="text" th:value="${medicineNum}" />
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <div>
+                        <span class="btn">
+                            <button id="btn-commit" type="button">
+                                <span>提交处方单</span>
+                            </button>
+                        </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--放入view具体内容-->
+    </div>
+
+
+</body>
+
+<section layout:fragment="js_layout">
+    <script th:src="@{/js/base/jquery-3.3.1.min.js}"></script>
+    <script th:src="@{http://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js}"></script>
+    <script th:src="@{/js/base/template-web.js}"></script>
+    <script th:src="@{/js/base/moment.js}"></script>
+    <script type="text/javascript" th:src="@{/js/doctor/edit-case.js}"></script>
+</section>
+
+</html>

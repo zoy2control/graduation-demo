@@ -10,6 +10,7 @@ import com.zoy.graduation.utils.AssembleUtil;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 
 /**
@@ -46,6 +47,14 @@ public class PatientServiceImpl implements IPatientService {
         accountInfo.setPrivilege(2);// ·患者的权限
         accountInfo.setPatientId(patientId);// ·患者id
         accountService.register(accountInfo);// ·账号注册
+    }
 
+    @Override
+    public PatientInfo queryByPatientId(PatientInfo patientInfo) {
+        PatientInfo result = patientInfoMapper.selectByPatientId(patientInfo);
+        if (null != result) {
+            return result;
+        }
+        return null;
     }
 }

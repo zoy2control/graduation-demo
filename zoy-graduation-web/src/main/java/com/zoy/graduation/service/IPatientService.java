@@ -1,6 +1,7 @@
 package com.zoy.graduation.service;
 
 
+import com.zoy.graduation.entity.patient.PatientInfo;
 import com.zoy.graduation.entity.patient.PatientRegisterDTO;
 
 /**
@@ -8,4 +9,5 @@ import com.zoy.graduation.entity.patient.PatientRegisterDTO;
  */
 public interface IPatientService {
     public void register(PatientRegisterDTO registerDTO);
+    public PatientInfo queryByPatientId(PatientInfo patientInfo);
 }
