@@ -22,19 +22,11 @@
 		    this.$company = $("#company");
 		    this.$addr = $("#addr");
 		    this.$tableCaseInfo = $("#table-case-info");
-		    this.$btnShowNewCase = $("#btn-new-case");
+		    this.$btnVisit = $("#btn-visit");
 		},
 		// ·绑定事件
 		bindEvents : function() {
-            this.$btnShowNewCase.on("click", App.showNewCase);
 		},
-        showNewCase : function () {
-		    var _storage = localStorage.getItem("doctor");
-		    var _doctor = JSON.parse(_storage);
-            var _storage02 = localStorage.getItem("visit_patient");
-            var _patient = JSON.parse(_storage02);
-            window.location.href = CTX + "/doctor/show/new/case/" + _doctor.doctorId + "/" + _patient.patientId;
-        },
         // ·患者过往病史
         renderTable : function() {
 			var _table = this.$tableCaseInfo;
@@ -103,21 +95,8 @@
                                     return moment(data).format('YYYY-MM-DD');
                                 }
                             }
-                        }, // 5
-                        {
-                            "data" : "caseId",
-                            "title":"操作",
-                            render : function (data, type, row, meta) {
-                                var _doctor = localStorage.getItem("doctor");
-                                var _parse = JSON.parse(_doctor);
-                                return template.render(
-                                    "<a href= '" +
-                                    "/doctor/case/visit/" +
-                                    row.caseId + "/" + _parse.doctorId
-                                    +"' target='_blank' title='就诊'>就诊</a>"
-                                )
-                            }
-                        } //
+                        } // 5
+
                     ]
 				});
 		},

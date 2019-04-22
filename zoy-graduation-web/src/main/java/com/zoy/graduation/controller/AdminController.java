@@ -29,4 +29,14 @@ public class AdminController {
         ModelAndView mv = new ModelAndView("admin/show_doctor");
         return mv;
     }
+
+    /**
+     * ·查看患者详情页面
+     * @return
+     */
+    @GetMapping("patient/detail")
+    public ModelAndView patientDetail() {
+        ModelAndView mv = new ModelAndView("admin/patient_detail");
+        return mv;
+    }
 }

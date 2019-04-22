@@ -23,7 +23,7 @@
 
 
 <body>
-    <h1>医生就诊</h1>
+    <h1>新增病例</h1>
 
     <h2>患者病例详情</h2>
     <div class="block block1">
@@ -35,7 +35,6 @@
                     <form id="case-info" action="" method="">
                         <table cellpadding="5" cellspacing="3" style="text-align:left; width:100%; border:0;">
                             <tbody>
-                            <input id="hidden-case-id" name="caseId" type="hidden" th:value="${caseId}"/>
                             <input id="hidden-patient-id" name="patientId" type="hidden" th:value="${patientId}"/>
                             <input id="hidden-doctor-id" name="doctorId" type="hidden" th:value="${doctorId}"/>
                             <input id="hidden-doctor-name" name="doctorName" type="hidden" th:value="${doctorName}"/>
@@ -56,21 +55,21 @@
                             <tr>
                                 <td align="right"><label for="age">病况</label></td>
                                 <td>
-                                    <input class="inputBg" size="25" name="state" id="state" type="text" th:value="${state}"/>
+                                    <input class="inputBg" size="25" name="state" id="state" type="text" />
                                 </td>
                             </tr>
 
                             <tr>
                                 <td align="right"><label for="medicine-name">药名</label></td>
                                 <td>
-                                    <input class="inputBg" size="25" name="medicineName" id="medicine-name" type="text" th:value="${medicineName}"/>
+                                    <input class="inputBg" size="25" name="medicineName" id="medicine-name" type="text" />
                                 </td>
                             </tr>
 
                             <tr>
                                 <td align="right"><label for="medicine-num">数量</label></td>
                                 <td>
-                                    <input class="inputBg" size="25" name="medicineNum" id="medicine-num" type="text" th:value="${medicineNum}" />
+                                    <input class="inputBg" size="25" name="medicineNum" id="medicine-num" type="text"  />
                                 </td>
                             </tr>
                             </tbody>
@@ -79,7 +78,7 @@
                         <div>
                         <span class="btn">
                             <button id="btn-commit" type="button">
-                                <span>提交处方单</span>
+                                <span>提交病例</span>
                             </button>
                         </span>
                         </div>
@@ -98,7 +97,7 @@
     <script th:src="@{http://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js}"></script>
     <script th:src="@{/js/base/template-web.js}"></script>
     <script th:src="@{/js/base/moment.js}"></script>
-    <script type="text/javascript" th:src="@{/js/doctor/edit-case.js}"></script>
+    <script type="text/javascript" th:src="@{/js/doctor/show_new_case.js}"></script>
 </section>
 
 </html>

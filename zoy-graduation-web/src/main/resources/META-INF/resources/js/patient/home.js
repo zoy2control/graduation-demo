@@ -64,7 +64,7 @@
                             "title":"数量"
                         }, // 1
                         {
-                            "data" : "docterName",
+                            "data" : "doctorName",
                             "title":"医生姓名"
                         }, //2
                         {
@@ -90,25 +90,6 @@
             }
             return _param;
         },
-        // ·查询患者就医记录
-		commit : function () {
-			var _formData = App.getFormData($("#form-info")[0]);
-			$.ajax({
-				url : CTX + "/patient/register",
-				type : "POST",
-				dataType : 'json',
-				cache : false,
-				data : _formData,
-                success: function(data) {
-				    // ·注册成功之后，跳转登录界面
-				    window.location.href = CTX + "/hello/index"
-                },
-                error: function(err) {
-                    window.location.href = CTX + "/hello/index"
-                }
-			})
-        },
-
         getFormData: function(target) {
             var _$target = target;
             var data = {};

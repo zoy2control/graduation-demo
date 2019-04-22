@@ -106,17 +106,19 @@ public class DoctorController {
         return result;
     }
 
-    @GetMapping("case/visit/{caseId}")
-    public ModelAndView caseVisit(@PathVariable("caseId") int caseId) {
-        CaseInfo caseInfo = caseService.findByCaseId(caseId);
+    @GetMapping("case/visit/{caseId}/{doctorId}")
+    public ModelAndView caseVisit(@PathVariable("caseId") int caseId,
+                                  @PathVariable("doctorId") long doctorId) {
+         CaseInfo caseInfo = caseService.findByCaseId(caseId);
+        DoctorInfo doctor = doctorService.findByDoctorId(doctorId);
         ModelAndView mv = new ModelAndView("doctor/edit-case");
         mv.addObject("state", caseInfo.getState());
         mv.addObject("medicineName", caseInfo.getMedicineName());
         mv.addObject("medicineNum", caseInfo.getMedicineNum());
         mv.addObject("caseId", caseInfo.getCaseId());
         mv.addObject("patientId", caseInfo.getPatientId());
-        mv.addObject("doctorId", caseInfo.getDoctorId());
-        mv.addObject("doctorName", caseInfo.getDoctorName());
+        mv.addObject("doctorId", doctor.getDoctorId());
+        mv.addObject("doctorName", doctor.getName());
         return mv;
     }
 
@@ -171,5 +173,26 @@ public class DoctorController {
     public ModelAndView showAdd() {
         ModelAndView mv = new ModelAndView("doctor/add_doctor");
         return mv;
+    }
+
+    @GetMapping("show/new/case/{doctorId}/{patientId}")
+    public ModelAndView showNewCase(@PathVariable("doctorId")long doctorId,
+                                    @PathVariable("patientId")long patientId) {
+        if (0 != doctorId) {
+            DoctorInfo doctor = doctorService.findByDoctorId(doctorId);
+            ModelAndView mv = new ModelAndView("doctor/show_new_case");
+            mv.addObject("patientId", patientId);
+            mv.addObject("doctorId", doctor.getDoctorId());
+            mv.addObject("doctorName", doctor.getName());
+            return mv;
+        }
+        return null;
+    }
+
+    @PostMapping("case/add")
+    public void addCase(CaseInfo caseInfo) {
+        if (null != caseInfo) {
+            caseService.addCase(caseInfo);
+        }
     }
 }

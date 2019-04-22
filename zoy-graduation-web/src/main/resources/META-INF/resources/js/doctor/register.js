@@ -30,11 +30,11 @@
 				cache : false,
 				data : _formData,
                 success: function(data) {
-                    //返回的数据用data.d获取内容
-                    alert(data.d);
+                    // ·注册成功之后，跳转登录界面
+                    window.location.href = CTX + "/hello/index"
                 },
                 error: function(err) {
-                    alert(err);
+                    window.location.href = CTX + "/hello/index"
                 }
 			})
         },

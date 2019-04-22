@@ -8,6 +8,7 @@
         SELECT
           case_id,
           patient_id,
+          doctor_id,
           state,
           medicine_name,
           medicine_num,
@@ -48,5 +49,18 @@
         AND
             patient_id = #{patientId}
     </update>
+
+    <insert id="insertNew" parameterType="com.zoy.graduation.entity.caseInfo.CaseInfo" >
+        INSERT INTO patient_case (case_id,patient_id,state, medicine_name,medicine_num,visit_time,doctor_id,doctor_name) VALUES (
+            #{caseId},
+              #{patientId}
+              #{state},
+             #{medicineName},
+              #{medicineNum},
+              #{visitTime},
+              #{doctorId},
+              #{doctorName}
+        )
+    </insert>
 </mapper>
 

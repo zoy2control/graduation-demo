@@ -23,7 +23,7 @@
         visit : function() {
             this.$patientId = App.getFormData($("#form-search-patient")[0]);
 		    localStorage.setItem("visit_patient", JSON.stringify(this.$patientId));
-		    window.location.href = CTX + "/doctor/show/patient"
+		    window.location.href = CTX + "/admin/patient/detail"
         },
         getFormData: function(target) {
             var _$target = target;

@@ -8,7 +8,7 @@ import java.util.Date;
  * Created by zouzp on 2019/4/20.
  */
 @Data
-public class CaseInfo {
+public class PatientCase {
     /**
      * ·病例id
      */

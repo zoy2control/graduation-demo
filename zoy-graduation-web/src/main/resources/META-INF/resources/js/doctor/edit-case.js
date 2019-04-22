@@ -8,7 +8,7 @@
 		init : function() {
 			this.catheElements();
 			this.bindEvents();
-			this.findPatientInfo();
+			this.findDoctorInfo();
 		},
 		// ·DOM对象
 		catheElements : function() {
@@ -42,7 +42,7 @@
             })
         },
         // ·查询患者个人信息
-        findPatientInfo : function () {
+        findDoctorInfo : function () {
           var _param = App.getPatientInfo();
             $.ajax({
                 url : CTX + "/doctor/query/patient",
@@ -52,14 +52,14 @@
                 data : _param,
                 success: function(data) {
                     // ·查询成功之后，患者个人信息回填 html
-                    App.fillPatientInfo(data);
+                    App.fillDoctorInfo(data);
                 },
                 error: function(err) {
                     alter(err);
                 }
             })
         },
-        fillPatientInfo : function (data) {
+        fillDoctorInfo : function (data) {
             if (null != data) {
                 App.$name.val(data.name);
                 App.$age.val(data.age);

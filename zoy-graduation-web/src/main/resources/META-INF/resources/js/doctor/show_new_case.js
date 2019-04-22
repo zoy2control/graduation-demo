@@ -1,5 +1,5 @@
 /**
- * 编辑医生
+ * 患者病例页面
  */
 (function($, window, ZOY, undefined) {
 	'use strict';
@@ -8,6 +8,7 @@
 		init : function() {
 			this.catheElements();
 			this.bindEvents();
+			this.findDoctorInfo();
 		},
 		// ·DOM对象
 		catheElements : function() {
@@ -20,21 +21,68 @@
             this.$btnCommit.on("click", App.commit);
 		},
         commit : function () {
-            var _formData = App.getFormData($("#doctor-info")[0]);
+            var _formData = App.getFormData($("#case-info")[0]);
             $.ajax({
-                url : CTX + "/doctor/update",
+                url : CTX + "/doctor/case/add",
                 type : "POST",
                 dataType : 'json',
                 cache : false,
                 data : _formData,
                 success: function(data) {
-                    // ·编辑成功后，跳转到医生管理页面
-                    window.location.href = CTX + "/admin/show/doctor"
+                    // ·提交就诊记录成功后，跳转到患者详情页面
+                    window.location.href = CTX + "/doctor/show/patient"
                 },
                 error: function(err) {
-                    window.location.href = CTX + "/admin/show/doctor"
+                    window.location.href = CTX + "/doctor/show/patient"
                 }
             })
+        },
+        // ·查询患者个人信息
+        findDoctorInfo : function () {
+          var _param = App.getPatientInfo();
+            $.ajax({
+                url : CTX + "/doctor/query/patient",
+                type : "POST",
+                dataType : 'json',
+                cache : false,
+                data : _param,
+                success: function(data) {
+                    // ·查询成功之后，患者个人信息回填 html
+                    App.fillDoctorInfo(data);
+                },
+                error: function(err) {
+                    alter(err);
+                }
+            })
+        },
+        fillDoctorInfo : function (data) {
+            if (null != data) {
+                App.$name.val(data.name);
+                App.$age.val(data.age);
+            }
+        },
+        getPatientInfo : function () {
+            var _param = {};
+            var _storage = localStorage.getItem("visit_patient");
+            var _parse = JSON.parse(_storage);
+            if (_parse.patientId != null) {
+                _param.patientId = _parse.patientId;
+            }
+            return _param;
+        },
+        getDocterInfo : function () {
+            var _param = {};
+            var _storage = localStorage.getItem("visit_patient");
+            var _parse = JSON.parse(_storage);
+            var _docter = localStorage.getItem("doctor");
+            var _parseDoctor = JSON.parse(_docter);
+            if (_parse.patientId != null) {
+                _param.patientId = _parse.patientId;
+            }
+            if(_parseDoctor.docterId != null) {
+                _param.docterId = _parseDoctor.docterId;
+            }
+            return _param;
         },
         getFormData: function(target) {
             var _$target = target;

@@ -1,5 +1,6 @@
 package com.zoy.graduation.utils;
 
+import com.zoy.graduation.entity.caseInfo.CaseInfo;
 import com.zoy.graduation.entity.doctor.DoctorInfo;
 import com.zoy.graduation.entity.doctor.DoctorRegisterDTO;
 import com.zoy.graduation.entity.patient.PatientInfo;
