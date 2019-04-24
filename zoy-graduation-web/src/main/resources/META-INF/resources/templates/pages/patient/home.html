@@ -24,9 +24,13 @@
 
 <body>
     <h1>患者主界面</h1>
-
+    <tr>
+        <td style="width:13%; text-align: right;"><label for="patient-id" class="required">病例号</label></td>
+        <td style="width:87%;">
+            <input class="inputBg" size="25"  id="patient-id" name="patientId" type="text" value="" disabled="disabled"/>
+        </td>
+    </tr>
     <div>
-
         <h2>就医记录列表</h2>
         <table id="table-case-info" class=" table table-hover table-bordered dataTable no-footer dtr-inline" width="100%" style="text-align:center"></table>
 

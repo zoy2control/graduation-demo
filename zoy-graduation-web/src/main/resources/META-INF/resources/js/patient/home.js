@@ -9,9 +9,11 @@
 			this.catheElements();
 			this.bindEvents();
 			this.renderTable();
+			this.fillPatientId();
 		},
 		// ·DOM对象
 		catheElements : function() {
+            this.$patientId = $("#patient-id");
             // ·按钮btn
             this.$btnSearch = $("#btn-search");
 			// ·table
@@ -89,6 +91,11 @@
                 _param.patientId = _parse.patientId;
             }
             return _param;
+        },
+        fillPatientId : function () {
+            var _storage = localStorage.getItem("patient");
+            var _parse = JSON.parse(_storage);
+            this.$patientId.val(_parse.patientId);
         },
         getFormData: function(target) {
             var _$target = target;

@@ -58,7 +58,10 @@
         // ·注册
 		register : function () {
 			// ·跳转至注册中心页面
-			window.location.href=CTX + '/hello/center/register';
+			// window.location.href=CTX + '/hello/center/register';
+
+            // ·跳转患者注册页面
+            window.location.href=CTX + '/patient/show/register';
         },
 
         getFormData: function(target) {
