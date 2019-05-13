@@ -1,0 +1,51 @@
+CREATE TABLE `patient_info`(
+  `tid` INT(11) NOT NULL AUTO_INCREMENT COMMENT '记录id',
+  `patient_id` INT(11) NOT NULL COMMENT '患者id',
+  `name` VARCHAR(11) DEFAULT '' COMMENT '姓名',
+  `age` INT(11) DEFAULT 0 COMMENT '年龄',
+	`sex` VARCHAR(11) DEFAULT '' COMMENT '性别',
+	`tel` VARCHAR(11) DEFAULT '' COMMENT '电话',
+	`addr` VARCHAR(20) DEFAULT '' COMMENT '联系地址',
+	`marriage` VARCHAR(11) DEFAULT 0 COMMENT '是否结婚（0：未结婚，1：已结婚）',
+	`company` VARCHAR(11) DEFAULT '' COMMENT '单位',
+	`identity_num` VARCHAR(20) DEFAULT '' COMMENT '身份证号码',
+	`case_id` INT(11) DEFAULT NULL COMMENT '病例id',
+  PRIMARY KEY (`tid`)
+) ENGINE=InnoDB AUTO_INCREMENT=220581 DEFAULT CHARSET=utf8 COMMENT='患者个人信息表';
+
+
+CREATE TABLE `patient_case`(
+  `tid` INT(11) NOT NULL AUTO_INCREMENT COMMENT '记录id',
+	`case_id` INT(11) NOT NULL COMMENT '病例id',
+  `patient_id` INT(11) NOT NULL COMMENT '患者id',
+  `state` VARCHAR(40) DEFAULT '' COMMENT '病况',
+  `medicine_name` VARCHAR(11) DEFAULT '' COMMENT '药名',
+  `medicine_num` INT(11) DEFAULT 0 COMMENT '数量',
+  `doctor_id` int(11) NOT NULL COMMENT '医生id',
+	`doctor_name` VARCHAR(11) DEFAULT '' COMMENT '医生姓名',
+	`create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '病例创建时间',
+	`visit_time` timestamp  NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '就诊时间',
+  PRIMARY KEY (`tid`)
+) ENGINE=InnoDB AUTO_INCREMENT=581 DEFAULT CHARSET=utf8 COMMENT='患者案例表';
+
+CREATE TABLE `doctor_info`(
+  `tid` INT(11) NOT NULL AUTO_INCREMENT COMMENT '记录id',
+  `doctor_id` INT(11) NOT NULL COMMENT '医生id',
+  `name` VARCHAR(11) DEFAULT '' COMMENT '姓名',
+	`sex` VARCHAR(11) DEFAULT '' COMMENT '性别',
+  `age` INT(11) DEFAULT NULL COMMENT '年龄',
+	`work_age` INT(11) DEFAULT NULL COMMENT '工龄',
+	`job_title` VARCHAR(11) DEFAULT '' COMMENT '职称',
+	`department` VARCHAR(11) DEFAULT '' COMMENT '科室',
+  PRIMARY KEY (`tid`)
+) ENGINE=InnoDB AUTO_INCREMENT=220 DEFAULT CHARSET=utf8 COMMENT='医生个人信息表';
+
+CREATE TABLE `account_info`(
+  `tid` INT(11) NOT NULL AUTO_INCREMENT COMMENT '记录id',
+  `account` VARCHAR(20) DEFAULT '' COMMENT '账号',
+  `password` VARCHAR(20) DEFAULT NULL COMMENT '密码',
+	`privilege` INT(11) DEFAULT 0 COMMENT '权限（0：管理员，1：医生，2：患者）',
+	`patient_id` int(11) NOT NULL COMMENT '患者id',
+	`doctor_id` int(11) NOT NULL COMMENT '医生id',
+  PRIMARY KEY (`tid`)
+) ENGINE=InnoDB AUTO_INCREMENT=181 DEFAULT CHARSET=utf8 COMMENT='账号表';
