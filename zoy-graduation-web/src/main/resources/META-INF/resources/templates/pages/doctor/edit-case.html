@@ -23,9 +23,9 @@
 
 
 <body>
-    <h1>医生就诊</h1>
+    <h1 style="color:black">医生就诊</h1>
 
-    <h2>患者病例详情</h2>
+    <h2 style="color:black">患者病例详情</h2>
     <div class="block block1">
         <!--放入view具体内容-->
         <div class="block box">
@@ -39,6 +39,7 @@
                             <input id="hidden-patient-id" name="patientId" type="hidden" th:value="${patientId}"/>
                             <input id="hidden-doctor-id" name="doctorId" type="hidden" th:value="${doctorId}"/>
                             <input id="hidden-doctor-name" name="doctorName" type="hidden" th:value="${doctorName}"/>
+                            <input id="hidden-state" name="state" type="hidden" th:value="${state}"/>
                             <tr>
                                 <td align="right"><label for="name">真实姓名</label></td>
                                 <td>
@@ -56,7 +57,7 @@
                             <tr>
                                 <td align="right"><label for="age">病况</label></td>
                                 <td>
-                                    <input class="inputBg" size="25" name="state" id="state" type="text" th:value="${state}"/>
+                                    <textarea class="inputBg" size="25" name="state" id="state" type="text" th:value="${state}"/>
                                 </td>
                             </tr>
 

@@ -8,6 +8,7 @@
 		init : function() {
 			this.catheElements();
 			this.bindEvents();
+			this.renderState();
 			this.findDoctorInfo();
 		},
 		// ·DOM对象
@@ -19,6 +20,7 @@
 		    this.$medNum = $("#medicine-num");
 		    this.$formCaseInfo = $("#case-info");
 		    this.$btnCommit = $("#btn-commit");
+		    this.$hiddenState = $("#hidden-state");
 		},
 		// ·绑定事件
 		bindEvents : function() {
@@ -26,6 +28,7 @@
 		},
         commit : function () {
             var _formData = App.getFormData($("#case-info")[0]);
+            // _formData.state = this.$state.text();
             $.ajax({
                 url : CTX + "/doctor/case/save",
                 type : "POST",
@@ -40,6 +43,10 @@
                     window.location.href = CTX + "/doctor/show/patient"
                 }
             })
+        },
+        renderState : function () {
+            var _state = this.$hiddenState.val();
+            this.$state.val(_state);
         },
         // ·查询患者个人信息
         findDoctorInfo : function () {
@@ -134,15 +141,15 @@
             //     }
             // });
             //
-            // // 处理 textarea 表单
-            // _$target.find("textarea").each(function(index, ele) {
-            //     var _$ele = $(ele);
-            //
-            //     var _name = _$ele.attr("name");
-            //     var _val = _$ele.val();
-            //
-            //     data[_name] = _val;
-            // });
+            // 处理 textarea 表单
+            $(_$target).find("textarea").each(function(index, ele) {
+                var _$ele = $(ele);
+
+                var _name = _$ele.attr("name");
+                var _val = _$ele.val();
+
+                data[_name] = _val;
+            });
             return data;
         }
 

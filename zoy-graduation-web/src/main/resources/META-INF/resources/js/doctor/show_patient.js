@@ -114,7 +114,7 @@
                                     "<a href= '" +
                                     "/doctor/case/visit/" +
                                     row.caseId + "/" + _parse.doctorId
-                                    +"' target='_blank' title='就诊'>就诊</a>"
+                                    +"' target='_blank' title='详情'>详情</a>"
                                 )
                             }
                         } //

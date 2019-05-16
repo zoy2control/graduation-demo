@@ -58,6 +58,10 @@
                     },
                     columns : [
                         {
+                            "data" : "state",
+                            "title" : "病因"
+                        },
+                        {
                             "data" : "medicineName",
                             "title":"药名"
                         }, // 0
@@ -67,7 +71,7 @@
                         }, // 1
                         {
                             "data" : "doctorName",
-                            "title":"医生姓名"
+                            "title":"就诊医生姓名"
                         }, //2
                         {
                             "data" : "visitTime",
